@@ -1,0 +1,40 @@
+<!--<div class="todo-list">
+    <ul ng-repeat="student in studentData">
+        <li><h3><input class="lead" type="checkbox" ng-click="deleteTodo(todo.id)">&nbsp;{{ student.name}}</li></h3><hr>
+    </ul>
+</div>-->
+
+<div >
+    <table st-table="displayedCollection" st-safe-src="rowCollection" class="table table-striped">
+        <thead>
+            <tr>
+                <th colspan="5"><input st-search="name" placeholder="global search ..." class="input-sm form-control" type="search"/></th>
+            </tr>
+            <tr>
+                <th st-sort="name">Name</th>
+                <th st-sort="dob">Birth Date</th>
+                <th st-sort="rollnumber">Roll Number</th>
+                <th st-sort="class">Class</th>
+                <th st-sort="fee">Initial Fee</th>
+                <th st-sort="mobile">Mobile</th>
+                <th st-sort="address">Address</th>
+                <th st-sort="sslcaddress">SSLC School Address</th>
+                <th st-sort="sslcper">SSLC %</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="row in studentData">
+                <td>{{row.name}}</td>
+                <td>{{row.dob}}</td>
+                <td>{{row.rollnumber}}</td>
+                <td>{{row.class}}</td>
+                <td>{{row.initialfee}}</td>
+                <td>{{row.mobile}}</td>
+                <td>{{row.address}}</td>
+                <td>{{row.sslcschooladdress}}</td>
+                <td>{{row.sslcpercentage}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

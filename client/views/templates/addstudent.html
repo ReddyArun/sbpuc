@@ -1,0 +1,25 @@
+<div class="header">
+    <h1>Node + Express + Angular + PostgreSQL</h1>
+    <hr>
+    <h1 class="lead">Node + Express + Angular + PostgreSQL</h1>
+</div>
+
+<div class="todo-form">
+    <form>
+        <div class="form-group">
+            <input type="text" class="form-control input-lg" placeholder="Enter Name..." ng-model="formData.name" required >
+            <input type="date" class="form-control input-lg" placeholder="Enter DOB..." ng-model="formData.dob" required >
+            <input type="text" class="form-control input-lg" placeholder="Enter Roll Number..." ng-model="formData.rollnumber" required >
+            <input type="text" class="form-control input-lg" placeholder="Enter Class..." ng-model="formData.class" required >
+            <input type="number" class="form-control input-lg" placeholder="Enter Initial Fee..." ng-model="formData.initialfee" required >
+            <input type="number" class="form-control input-lg" placeholder="Enter Mobile..." ng-model="formData.mobile" required >
+            <input type="text" class="form-control input-lg" placeholder="Enter Address..." ng-model="formData.address" required >
+            <input type="text" class="form-control input-lg" placeholder="Enter SSLC School Address..." ng-model="formData.sslcschooladdress" required >
+            <input type="text" class="form-control input-lg" placeholder="Enter SSLC Percentage..." ng-model="formData.sslcpercentage" required >
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="createTodo()">Add Todo</button>
+    </form>
+</div>
+
+<br>
+
