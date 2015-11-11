@@ -6,12 +6,10 @@ var connectionString = require(path.join(__dirname, '../', '../', 'configuration
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', function (req, res) {
+router.get('/:id', function (req, res) {
     var results = [];
     // Grab data from the URL parameters
     var id = req.params.id;
-    // Grab data from http request
-    var data = {text: req.body.text, complete: req.body.complete};
     // Get a Postgres client from the connection pool
     pg.connect(connectionString, function (err, client, done) {
         // Handle connection errors
@@ -21,15 +19,24 @@ router.get('/', function (req, res) {
             return res.status(500).json({success: false, data: err});
         }
         // SQL Query > Select Data
-        var query = client.query("SELECT * FROM student ORDER BY id ASC");
+        var query = client.query("SELECT * FROM student WHERE id=($1)", [id]);
+        query.on('row', function (row) {
+            results.push(row);
+        });
+        query = client.query("SELECT * FROM studentfee WHERE studentid=($1)", [id]);
+        query.on('row', function (row) {
+            results.push(row);
+        });
+        query = client.query("SELECT sum(amount) paidamount FROM studentfee WHERE studentid=($1)", [id]);
         query.on('row', function (row) {
             results.push(row);
         });
         query.on('end', function () {
             done();
+            console.log('results : ' + results);
             return res.json(results);
         });
+        
     });
 });
-
 module.exports = router;

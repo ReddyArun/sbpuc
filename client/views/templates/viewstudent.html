@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="jumbotron">
+        <h1>{{viewStudentData.name}}</h1>
+        <p>{{viewStudentData.address}}</p> 
+        <p>{{viewStudentData.mobile}}</p> 
+    </div>
+    <div class="pull-right"><a href="#/addfeepayment/{{viewStudentData.id}}" class="btn btn-primary " style="align-self: flex-end">Pay Fee</a></div>
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th st-sort="name">Date</th>
+                    <th st-sort="dob">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="row in viewFeeData">
+                    <td>{{row.paiddate| date:'MMM dd, yyyy'}}</td>
+                    <td>{{row.amount}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="pull-right"><div class="text-primary lead colors">Total Paid Amount : <label class="col-bn"> {{viewBalanceData.paidamount}} </label> </div></div>
+</div>

@@ -10,7 +10,6 @@ var router = express.Router();
 router.post('/', function (req, res) {
     var results = [];
     // Grab data from http request
-     console.log(req.body);
     var data = {
         id: uuid.v1(),
         name: req.body.name,
@@ -23,7 +22,6 @@ router.post('/', function (req, res) {
         sslcschooladdress: req.body.sslcschooladdress,
         sslcpercentage: req.body.sslcpercentage
     };
-    console.log(data);
     // Get a Postgres client from the connection pool
     pg.connect(connectionString, function (err, client, done) {
         // Handle connection errors
@@ -39,7 +37,6 @@ router.post('/', function (req, res) {
         query.on('row', function (row) {
             results.push(row);
         });
-        console.log(results);
         query.on('end', function () {
             done();
             return res.json(results);
