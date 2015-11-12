@@ -35,9 +35,9 @@ routerApp.service('SessionService', function () {
 });
 routerApp.run(['$rootScope', '$location', 'SessionService', function ($rootScope, $location, SessionService) {
         $rootScope.$on('$locationChangeStart', function (event, next) {
-            if (!SessionService.getAuthenticatedUser()) {
-                console.log("Authentication Error");
-                $location.path('/');
-            }
+//            if (!SessionService.getAuthenticatedUser()) {
+//                console.log("Authentication Error");
+//                $location.path('/');
+//            }
         });
     }]);

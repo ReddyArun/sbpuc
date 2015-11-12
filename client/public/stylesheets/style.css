@@ -1,5 +1,30 @@
-body{padding:50px;font:14px "Lucida Grande",Helvetica,Arial,sans-serif}a{color:#00B7FF}
-
+body{font:14px "Lucida Grande",Helvetica,Arial,sans-serif;}
+/* Custom page CSS
+-------------------------------------------------- */
+.navbar-custom {
+    color: #FFFFFF;
+    background-color: #428BCA;
+}
 .vertical-offset-100{
     padding-top:100px;
+}
+.site-footer {
+    position: relative;
+    margin-top: 40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #767676;
+    border-top: 1px solid #eee;
+}
+.clickable tr {
+    cursor: pointer;
+}
+.muffin.table {
+    border-top: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+}
+.margin-bottom0 {
+    margin-bottom: 0px;
 }

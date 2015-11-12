@@ -1,25 +1,84 @@
-<div class="header">
-    <h1>Node + Express + Angular + PostgreSQL</h1>
-    <hr>
-    <h1 class="lead">Node + Express + Angular + PostgreSQL</h1>
-</div>
-
-<div class="todo-form">
-    <form>
+<div id="loginForm">
+    <form class="form-horizontal" role="form">
         <div class="form-group">
-            <input type="text" class="form-control input-lg" placeholder="Enter Name..." ng-model="formData.name" required >
-            <input type="date" class="form-control input-lg" placeholder="Enter DOB..." ng-model="formData.dob" required >
-            <input type="text" class="form-control input-lg" placeholder="Enter Roll Number..." ng-model="formData.rollnumber" required >
-            <input type="text" class="form-control input-lg" placeholder="Enter Class..." ng-model="formData.class" required >
-            <input type="number" class="form-control input-lg" placeholder="Enter Initial Fee..." ng-model="formData.initialfee" required >
-            <input type="number" class="form-control input-lg" placeholder="Enter Mobile..." ng-model="formData.mobile" required >
-            <input type="text" class="form-control input-lg" placeholder="Enter Address..." ng-model="formData.address" required >
-            <input type="text" class="form-control input-lg" placeholder="Enter SSLC School Address..." ng-model="formData.sslcschooladdress" required >
-            <input type="text" class="form-control input-lg" placeholder="Enter SSLC Percentage..." ng-model="formData.sslcpercentage" required >
+            <label class="control-label col-sm-2" for="name">Name:</label>
+            <div class="col-sm-6">
+                <input id="name" type="text" class="form-control input-sm" placeholder="Enter Name" ng-model="formData.name" required >
+                <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="dob" class="control-label col-sm-2">Date of Birth :</label>
+            <div class="col-sm-2">
+                <input id="dob" type="date" class="form-control input-sm" placeholder="Enter DOB" ng-model="formData.dob" required >
+            </div>
+            <label for="rollnumber" class="control-label col-sm-2">Roll Number :</label>
+            <div class="col-sm-2">
+                <input id="rollnumber" type="text" class="form-control input-sm" placeholder="Enter Roll Number" ng-model="formData.rollnumber" required >
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="class" class="control-label col-sm-2">Class :</label>
+            <div class="col-sm-2">
+                <input id="class" type="text" class="form-control input-sm" placeholder="Enter Class" ng-model="formData.class" required >
+            </div>
+            <label for="initialfee" class="control-label col-sm-2">Fee :</label>
+            <div class="col-sm-2">
+                <input id="initialfee" type="number" class="form-control input-sm" placeholder="Enter Initial Fee" ng-model="formData.initialfee" required >
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="mobile" class="control-label col-sm-2">Mobile :</label>
+            <div class="col-sm-2">
+                <input id="mobile" type="number" class="form-control input-sm" placeholder="Enter Mobile" ng-model="formData.mobile" required >
+            </div>
+            <label for="sslcpercentage" class="control-label col-sm-2">SSLC % :</label>
+            <div class="col-sm-2">
+                <input id="sslcpercentage" type="text" class="form-control input-sm" placeholder="Enter SSLC Percentage..." ng-model="formData.sslcpercentage" required >
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="address" class="control-label col-sm-2">Address :</label>
+            <div class="col-sm-6">
+                <input id="address" type="text" class="form-control input-sm" placeholder="Enter Address..." ng-model="formData.address" required >
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="sslcschooladdress" class="control-label col-sm-2">SSLC School Address :</label>
+            <div class="col-sm-6">
+                <input id="sslcschooladdress" type="text" class="form-control input-sm" placeholder="Enter SSLC School Address..." ng-model="formData.sslcschooladdress" required >
+            </div>
         </div>
         <button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="createTodo()">Add Student</button>
     </form>
 </div>
 
-<br>
+<script>
+    $(document).ready(function () {
 
+        $('#contact-form').validate({
+            rules: {
+                name: {
+                    minlength: 2,
+                    required: true
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                message: {
+                    minlength: 2,
+                    required: true
+                }
+            },
+            highlight: function (element) {
+                $(element).closest('.form-group').removeClass('success').addClass('error');
+            },
+            success: function (element) {
+                element.text('OK!').addClass('valid')
+                        .closest('.form-group').removeClass('error').addClass('success');
+            }
+        });
+
+    });
+</script>

@@ -1,40 +1,42 @@
-<!--<div class="todo-list">
-    <ul ng-repeat="student in studentData">
-        <li><h3><input class="lead" type="checkbox" ng-click="deleteTodo(todo.id)">&nbsp;{{ student.name}}</li></h3><hr>
-    </ul>
-</div>-->
-
-<div >
-    <table class="table table-striped">
+<div>
+    <div >
+        <input id="globalfilter" type="text" class="form-control" placeholder="Global Search...">
+    </div>
+    <table class="table table-striped table-hover muffin margin-bottom0">
         <thead>
             <tr>
-                <th colspan="5"><input placeholder="global search ..." class="input-sm form-control" type="search"/></th>
-            </tr>
-            <tr>
-                <th st-sort="name">Name</th>
-                <th st-sort="dob">Birth Date</th>
-                <th st-sort="rollnumber">Roll Number</th>
-                <th st-sort="class">Class</th>
-                <th st-sort="fee">Initial Fee</th>
-                <th st-sort="mobile">Mobile</th>
-                <th st-sort="address">Address</th>
-                <th st-sort="sslcaddress">SSLC School Address</th>
-                <th st-sort="sslcper">SSLC %</th>
+                <th>Name</th>
+                <th>Mobile</th>
+                <th>Roll Number</th>
+                <th>Class</th>
+                <th>1st PUC Fee</th>
+                <th>2nd PUC Fee</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="searchable clickable">
             <tr ng-repeat="row in studentData" ng-click="go(row.id)">
                 <td>{{row.name}}</td>
-                <td>{{row.dob | date:'MMM dd, yyyy'}}</td>
+                <td>{{row.mobile}}</td>
                 <td>{{row.rollnumber}}</td>
                 <td>{{row.class}}</td>
-                <td>{{row.initialfee}}</td>
-                <td>{{row.mobile}}</td>
-                <td>{{row.address}}</td>
-                <td>{{row.sslcschooladdress}}</td>
-                <td>{{row.sslcpercentage}}</td>
+                <td>{{row.puc1fee}}</td>
+                <td>{{row.puc2fee}}</td>
+
             </tr>
         </tbody>
     </table>
-
 </div>
+
+<script>
+            $(document).ready(function () {
+                (function ($) {
+                    $('#globalfilter').keyup(function () {
+                        var rex = new RegExp($(this).val(), 'i');
+                        $('.searchable tr').hide();
+                        $('.searchable tr').filter(function () {
+                            return rex.test($(this).text());
+                        }).show();
+                    });
+                }(jQuery));
+            });
+</script>

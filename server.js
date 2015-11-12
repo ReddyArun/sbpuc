@@ -46,6 +46,7 @@ app.use(session({secret: 'keyboard mc190', cookie: {maxAge: 60000},user:''}));
 app.use(require('less-middleware')(path.join(__dirname, 'api')));
 app.use(express.static(path.join(__dirname, './client', 'public')));
 app.use(express.static(path.join(__dirname, './client', 'views')));
+app.use(express.static(path.join(__dirname, 'bower_components')));
 
 app.use('/', routes);
 app.use('/loginuser', login);
