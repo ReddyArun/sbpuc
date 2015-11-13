@@ -5,7 +5,7 @@ angular.module('sbpuc').controller('viewAllStudentDetailCtrl', function ($scope,
     };
 
     // Get all todos
-    $http.get('/studentDetails')
+    $http.get('/api/com/sbect/student/view/studentdetails')
             .success(function (data) {
                 $scope.studentData = data;
             })

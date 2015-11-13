@@ -8,7 +8,8 @@ CREATE TABLE "student"
   name character varying(250)  not null,
   rollnumber character varying(20),
   class character varying(5)  not null,
-  initialfee integer  not null,
+  puc1fee integer  not null default 0,
+  puc2fee integer  not null default 0,
   mobile character varying(10)  not null,
   address text not null,
   sslcschooladdress character varying(250),
@@ -17,20 +18,13 @@ CREATE TABLE "student"
   CONSTRAINT student_id PRIMARY KEY (id)
 );
 
-CREATE TABLE "user"
-(
-  id uuid NOT NULL,
-  name character varying(10) NOT NULL,
-  password character varying(8) NOT NULL,
-  CONSTRAINT user_id PRIMARY KEY (id)
-);
-
 DROP TABLE "studentfee";
 
 CREATE TABLE "studentfee"
 (
   studentfeeid uuid NOT NULL,
   studentid uuid NOT NULL,
+  description character varying(250) NOT NULL,
   amount integer NOT NULL,
   paiddate date NOT NULL,
   CONSTRAINT studentfee_id PRIMARY KEY (studentfeeid),

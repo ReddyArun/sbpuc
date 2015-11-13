@@ -1,8 +1,6 @@
 var express = require('express');
 var pg = require('pg');
-var path = require('path');
 var uuid = require('node-uuid');
-var connectionString = require(path.join(__dirname, '../', '../', 'configuration'));
 
 var router = express.Router();
 
@@ -17,7 +15,7 @@ router.post('/:id', function (req, res) {
         date:new Date()
     };
     // Get a Postgres client from the connection pool
-    pg.connect(connectionString, function (err, client, done) {
+    pg.connect(global.connectionString, function (err, client, done) {
         // Handle connection errors
         if (err) {
             done();

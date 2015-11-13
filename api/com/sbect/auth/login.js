@@ -1,7 +1,7 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var path = require('path');
-var hash = require(path.join(__dirname, '../', '../', './pass')).hash;
+var hash = require(path.join(__dirname, './pass')).hash;
 var router = express.Router();
 
 /* GET home page. */

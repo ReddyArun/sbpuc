@@ -3,7 +3,7 @@ angular.module('sbpuc').controller('viewStudentCtrl', function ($scope, $http, $
     $scope.viewFeeData = {};
     $scope.viewBalanceData = {};
     // Get all todos
-    $http.get('/studentDetails/' + $routeParams.id)
+    $http.get('/api/com/sbect/student/view/studentdetails/' + $routeParams.id)
             .success(function (data) {
                 $scope.viewStudentData = data[0];
                 if (data.length > 1) {

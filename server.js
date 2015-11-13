@@ -8,17 +8,9 @@ var mongoose = require('mongoose');
 var http = require('http');
 var session = require('express-session');
 
-var routes = require('./api/routes/index');
-var login = require('./api/routes/loginroute');
-//var users = require('./api/routes/users');
-//var create = require('./api/routes/create');
-var addstudent = require('./api/routes/addstudentroute');
-//var update = require('./api/routes/update');
-//var deleteOp = require('./api/routes/delete');
-var studentDetails = require('./api/routes/studentdetailsroute');
-var addfeepayment = require('./api/routes/addfeepaymentroute');
-
 var app = express();
+
+global.connectionString = require(path.join(__dirname, './configuration'));
 
 /*
  Database and Models
@@ -48,15 +40,18 @@ app.use(express.static(path.join(__dirname, './client', 'public')));
 app.use(express.static(path.join(__dirname, './client', 'views')));
 app.use(express.static(path.join(__dirname, 'bower_components')));
 
-app.use('/', routes);
-app.use('/loginuser', login);
+app.use('/', require('./api/index'));
+app.use('/api/com/sbect/auth/login', require('./api/com/sbect/auth/login'));
+app.use('/api/com/sbect/student/add/addstudent', require('./api/com/sbect/student/add/addstudent'));
+app.use('/api/com/sbect/student/add/addfeepayment', require('./api/com/sbect/student/add/addfeepayment'));
+app.use('/api/com/sbect/student/view/studentdetails', require('./api/com/sbect/student/view/studentdetails'));
 //app.use('/users', users);
 //app.use('/create', create);
-app.use('/addstudent', addstudent);
-app.use('/addfeepayment', addfeepayment);
+// app.use('/addstudent', addstudent);
+// app.use('/addfeepayment', addfeepayment);
 //app.use('/update', update);
 //app.use('/delete', deleteOp);
-app.use('/studentdetails', studentDetails);
+// app.use('/studentdetails', studentDetails);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

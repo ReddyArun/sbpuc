@@ -1,84 +1,62 @@
-<div id="loginForm">
-    <form class="form-horizontal" role="form">
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="name">Name:</label>
-            <div class="col-sm-6">
-                <input id="name" type="text" class="form-control input-sm" placeholder="Enter Name" ng-model="formData.name" required >
-                <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+<div class="panel panel-primary">
+    <div class="panel-heading">Add New Student</div>
+    <div class="panel-body">
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="name">Name:</label>
+                <div class="col-sm-6">
+                    <input id="name" type="text" class="form-control input-sm" placeholder="Enter Name" ng-model="formData.name" required >
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label for="dob" class="control-label col-sm-2">Date of Birth :</label>
-            <div class="col-sm-2">
-                <input id="dob" type="date" class="form-control input-sm" placeholder="Enter DOB" ng-model="formData.dob" required >
+            <div class="form-group">
+                <label for="dob" class="control-label col-sm-2">Date of Birth :</label>
+                <div class=" col-sm-2" data-provider="datepicker">
+                    <input id="dob" type="date" class="form-control input-sm" placeholder="Enter DOB" ng-model="formData.dob" required >
+                </div>
+                <label for="rollnumber" class="control-label col-sm-2">Roll Number :</label>
+                <div class="col-sm-2">
+                    <input id="rollnumber" type="text" class="form-control input-sm" placeholder="Enter Roll Number" ng-model="formData.rollnumber" required >
+                </div>
             </div>
-            <label for="rollnumber" class="control-label col-sm-2">Roll Number :</label>
-            <div class="col-sm-2">
-                <input id="rollnumber" type="text" class="form-control input-sm" placeholder="Enter Roll Number" ng-model="formData.rollnumber" required >
+            <div class="form-group">
+                <label for="class" class="control-label col-sm-2">Class :</label>
+                <div class="col-sm-2">
+                    <select class="form-control input-sm" id="class" placeholder="Enter Class" ng-model="formData.class" required>
+                        <option value="PUC1">1st PUC</option>
+                        <option value="PUC2">2nd PUC</option>
+                    </select>
+                </div>
+                <label for="initialfee" class="control-label col-sm-2">Fee :</label>
+                <div class="col-sm-2">
+                    <input id="initialfee" type="number" class="form-control input-sm" placeholder="Enter Initial Fee" ng-model="formData.initialfee" required >
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label for="class" class="control-label col-sm-2">Class :</label>
-            <div class="col-sm-2">
-                <input id="class" type="text" class="form-control input-sm" placeholder="Enter Class" ng-model="formData.class" required >
+            <div class="form-group">
+                <label for="mobile" class="control-label col-sm-2">Mobile :</label>
+                <div class="col-sm-2">
+                    <input id="mobile" type="number" class="form-control input-sm" placeholder="Enter Mobile" ng-model="formData.mobile" required >
+                </div>
+                <label for="sslcpercentage" class="control-label col-sm-2">SSLC % :</label>
+                <div class="col-sm-2">
+                    <input id="sslcpercentage" type="text" class="form-control input-sm" placeholder="Enter SSLC Percentage..." ng-model="formData.sslcpercentage" required >
+                </div>
             </div>
-            <label for="initialfee" class="control-label col-sm-2">Fee :</label>
-            <div class="col-sm-2">
-                <input id="initialfee" type="number" class="form-control input-sm" placeholder="Enter Initial Fee" ng-model="formData.initialfee" required >
+            <div class="form-group">
+                <label for="address" class="control-label col-sm-2">Address :</label>
+                <div class="col-sm-2">
+                    <textarea name="address" id="address" rows="6" class="col-sm-12" placeholder="Permanent Address" required ng-model="formData.address"></textarea>
+                </div>
+                <label for="sslcschooladdress" class="control-label col-sm-2">SSLC School Address :</label>
+                <div class="col-sm-2">
+                    <textarea name="sslcschooladdress" id="sslcschooladdress" rows="6" class="col-sm-12" placeholder="SSLC School Address" required ng-model="formData.sslcschooladdress"></textarea>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label for="mobile" class="control-label col-sm-2">Mobile :</label>
-            <div class="col-sm-2">
-                <input id="mobile" type="number" class="form-control input-sm" placeholder="Enter Mobile" ng-model="formData.mobile" required >
+            <div class="form-group">
+                <div class="col-sm-9">
+                    <button type="submit" class="btn btn-lg btn-success center-block" ng-click="createStudent()">Add Student</button>
+                </div>
             </div>
-            <label for="sslcpercentage" class="control-label col-sm-2">SSLC % :</label>
-            <div class="col-sm-2">
-                <input id="sslcpercentage" type="text" class="form-control input-sm" placeholder="Enter SSLC Percentage..." ng-model="formData.sslcpercentage" required >
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="address" class="control-label col-sm-2">Address :</label>
-            <div class="col-sm-6">
-                <input id="address" type="text" class="form-control input-sm" placeholder="Enter Address..." ng-model="formData.address" required >
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="sslcschooladdress" class="control-label col-sm-2">SSLC School Address :</label>
-            <div class="col-sm-6">
-                <input id="sslcschooladdress" type="text" class="form-control input-sm" placeholder="Enter SSLC School Address..." ng-model="formData.sslcschooladdress" required >
-            </div>
-        </div>
-        <button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="createTodo()">Add Student</button>
-    </form>
+        </form>
+    </div>
 </div>
 
-<script>
-    $(document).ready(function () {
-
-        $('#contact-form').validate({
-            rules: {
-                name: {
-                    minlength: 2,
-                    required: true
-                },
-                email: {
-                    required: true,
-                    email: true
-                },
-                message: {
-                    minlength: 2,
-                    required: true
-                }
-            },
-            highlight: function (element) {
-                $(element).closest('.form-group').removeClass('success').addClass('error');
-            },
-            success: function (element) {
-                element.text('OK!').addClass('valid')
-                        .closest('.form-group').removeClass('error').addClass('success');
-            }
-        });
-
-    });
-</script>

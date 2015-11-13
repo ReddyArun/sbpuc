@@ -6,7 +6,7 @@ angular.module('sbpuc').controller('loginCtrl', function ($window, $scope, $http
     }
 // Login Staff
     $scope.loginUser = function () {
-        $http.post('/loginuser', $scope.loginData)
+        $http.post('/api/com/sbect/auth/login', $scope.loginData)
                 .success(function (data) {
                     SessionService.setAuthenticatedUser(JSON.stringify(data));
                     $scope.loginData = {};
