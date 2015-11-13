@@ -1,6 +1,8 @@
 
-angular.module('sbpuc').controller('loginCtrl', function ($window, $scope, $http, $location, SessionService) {
+angular.module('sbpuc').controller('loginCtrl', function ($scope, $http, $location, SessionService) {
     $scope.loginData = {};
+    $scope.loginData.username = 'arun';
+    $scope.loginData.password = 'arun';
     if (SessionService.getAuthenticatedUser()) {
         $location.path('/viewallstudentdetails');
     }

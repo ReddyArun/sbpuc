@@ -22,7 +22,6 @@ routerApp.config(function ($routeProvider) {
                 controller: 'addFeePaymentCtrl'
             });
 });
-
 routerApp.service('SessionService', function () {
     var authenticatedUser = null;
 
@@ -39,5 +38,10 @@ routerApp.run(['$rootScope', '$location', 'SessionService', function ($rootScope
 //                console.log("Authentication Error");
 //                $location.path('/');
 //            }
+        });
+        $rootScope.$on('show-errors-reset', function () {
+            $timeout(function () {
+                el.removeClass('has-error');
+            }, 0, false);
         });
     }]);
