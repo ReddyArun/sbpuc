@@ -10,7 +10,7 @@ angular.module('sbpuc').controller('addFeePaymentCtrl', function ($scope, $http,
         $http.post('/api/com/sbect/student/add/addfeepayment/' + id, $scope.feePayment)
                 .success(function (data) {
                     $scope.formData = {};
-                    $location.path('/viewstudent/' + id);
+                    $location.path('/viewstudent/' + data);
                 })
                 .error(function (error) {
                     console.log('Error: ' + error);

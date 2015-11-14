@@ -2,23 +2,23 @@ var routerApp = angular.module('sbpuc', ['ngRoute']);
 routerApp.config(function ($routeProvider) {
     $routeProvider
             .when('/', {
-                templateUrl: '/templates/loginpage.html',
+                templateUrl: '/templates/auth/loginpage.html',
                 controller: 'loginCtrl'
             })
             .when('/viewallstudentdetails', {
-                templateUrl: '/templates/allstudentdetails.html',
+                templateUrl: '/templates/student/view/allstudentdetails.html',
                 controller: 'viewAllStudentDetailCtrl'
             })
             .when('/addstudent', {
-                templateUrl: '/templates/addstudent.html',
+                templateUrl: '/templates/student/add/addstudent.html',
                 controller: 'addStudentCtrl'
             })
             .when('/viewstudent/:id', {
-                templateUrl: '/templates/viewstudent.html',
+                templateUrl: '/templates/student/view/viewstudent.html',
                 controller: 'viewStudentCtrl'
             })
             .when('/addfeepayment/:id', {
-                templateUrl: '/templates/addfeepayment.html',
+                templateUrl: '/templates/student/add/addfeepayment.html',
                 controller: 'addFeePaymentCtrl'
             });
 });

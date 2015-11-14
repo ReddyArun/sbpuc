@@ -41,6 +41,7 @@ app.use(express.static(path.join(__dirname, './client', 'views')));
 app.use(express.static(path.join(__dirname, 'bower_components')));
 
 app.use('/', require('./api/index'));
+app.use('/print', require('./api/com/sbect/student/view/printdetails'));
 app.use('/api/com/sbect/auth/login', require('./api/com/sbect/auth/login'));
 app.use('/api/com/sbect/student/add/addstudent', require('./api/com/sbect/student/add/addstudent'));
 app.use('/api/com/sbect/student/add/addfeepayment', require('./api/com/sbect/student/add/addfeepayment'));

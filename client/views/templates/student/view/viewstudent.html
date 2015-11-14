@@ -1,22 +1,29 @@
-<div class="container">
-    <div class="jumbotron">
-        <h1>{{viewStudentData.name}}</h1>
-        <p>{{viewStudentData.address}}</p> 
-        <p>{{viewStudentData.mobile}}</p> 
+<div >
+    <div class="well well-lg">
+        <h1 >{{viewStudentData.name}}</h1>
+        <p >{{viewStudentData.mobile}}</p> 
+        <p >{{viewStudentData.address}}</p> 
+        <p>Promised 1st Year Fee : <label >{{viewStudentData.puc1fee}}</label></p> 
+        <p>Promised 2nd Year Fee : <label >{{viewStudentData.puc2fee}}</label></p>
+
     </div>
     <div class="pull-right"><a href="#/addfeepayment/{{viewStudentData.id}}" class="btn btn-primary " style="align-self: flex-end">Pay Fee</a></div>
     <div class="row">
         <table class="table">
             <thead>
                 <tr>
-                    <th st-sort="name">Date</th>
-                    <th st-sort="dob">Amount</th>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Description</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="row in viewFeeData">
                     <td>{{row.paiddate| date:'MMM dd, yyyy'}}</td>
                     <td>{{row.amount}}</td>
+                    <td>{{row.description}}</td>
+                    <td><button class="btn btn-primary " style="align-self: flex-end" ng-click="print(viewStudentData.id, row.studentfeeid)">Print</button></td>
                 </tr>
             </tbody>
         </table>
