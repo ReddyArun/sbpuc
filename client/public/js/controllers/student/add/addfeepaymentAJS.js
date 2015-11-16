@@ -6,8 +6,6 @@ angular.module('sbpuc').controller('addFeePaymentCtrl', function ($scope, $http,
     //var id = $routeParams.id;
     // Create a new student
     $scope.addFeePayment = function (id) {
-        console.log(id)
-        console.log($scope.feePayment)
         $('#myModal').modal('hide');
         $http.post('/api/com/sbect/student/add/addfeepayment/' + id, $scope.feePayment)
                 .success(function (data) {
