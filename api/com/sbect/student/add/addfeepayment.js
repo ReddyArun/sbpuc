@@ -42,7 +42,7 @@ router.post('/:id', function (req, res) {
 //            done();
 //            return res.json(results);
 //        });
-        return res.json(data.studentid);
+        return res.json(data.id);
     });
 });
 module.exports = router;
